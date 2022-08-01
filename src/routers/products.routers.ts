@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import ProductController from '../controllers/product.controller';
-/* import validationProduct from '../middlewares/products.middleware'; */
+import validationProduct from '../middlewares/products.middleware';
 
 const productRouter = Router();
 
@@ -9,7 +9,7 @@ const productController = new ProductController();
 
 productRouter.post(
   '/products',
-  /* validationProduct, */
+  validationProduct,
   (req, res) => productController.create(req, res),
 );
 

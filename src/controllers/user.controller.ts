@@ -19,6 +19,13 @@ class UserController {
     const token = jwt.sign({ createdUser }, JWT_SECRET, jwtConfig); 
     res.status(StatusCodes.CREATED).json({ token });
   }
+
+  public async login(req: Request, res: Response) {
+    const newUser = req.body;
+    const createdNewUser = await this.service.login(newUser);
+    const token = jwt.sign({ createdNewUser }, JWT_SECRET, jwtConfig);
+    res.status(StatusCodes.OK).json({ token });
+  }
 }
 
 export default UserController;

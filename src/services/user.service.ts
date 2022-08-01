@@ -10,6 +10,8 @@ class UserService {
   }
 
   create = async (user: User): Promise<User> => this.userModel.create(user);
+
+  login = async (user: User): Promise<User[]> => this.userModel.login(user);
 }
 
 export default UserService;
