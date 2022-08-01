@@ -12,7 +12,7 @@ class ProductController {
 
   public async getAll(req: Request, res: Response): Promise<Response> {
     const products = await this.service.getAll();
-    return res.status(200).json(products);
+    return res.status(StatusCodes.OK).json(products);
   }
 
   public async create(req: Request, res: Response) {
